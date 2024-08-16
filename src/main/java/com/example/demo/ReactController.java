@@ -1,0 +1,14 @@
+package com.example.demo;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class ReactController {
+
+    @RequestMapping(value = "/{path:[^\\.]*}")
+    public String redirect() {
+        // Redireciona todas as rotas que não sejam para arquivos estáticos para o index.html
+        return "forward:/index.html";
+    }
+}
